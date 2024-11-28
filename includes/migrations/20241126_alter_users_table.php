@@ -12,6 +12,7 @@ return function ($db) {
         'city' => 'VARCHAR(100) DEFAULT NULL',
         'state' => 'VARCHAR(100) DEFAULT NULL',
         'pin_code' => 'VARCHAR(10) DEFAULT NULL',
+        'status' => 'VARCHAR(10) DEFAULT NULL',
         'uploader' => 'VARCHAR(100) DEFAULT NULL',
         'profile_pic' => 'VARCHAR(255) DEFAULT NULL',
     ];
@@ -34,11 +35,11 @@ return function ($db) {
         }
     }
 
-    // Insert the administrator record
+    // Insert the administrator record password: admin
     $insertQuery = "
-    INSERT INTO `users` (name, email, password, status, usertype, uploader)
+    INSERT IGNORE INTO `users` (name, email, password, status, usertype, uploader)
     VALUES
-    ('Administrator', 'admin@snowfall.com', '63a9f0ea7bb98050796b649e85481845', 'active', 'root', 'self');
+    ('Administrator', 'admin@snowfall.com', '53ada20d60d8fadadbfc3d00b0ee6260', 'active', 'root', 'self');
     ";
 
     // Execute the INSERT INTO query

@@ -10,8 +10,8 @@ class itways extends db{
 
     function login() {
         // Sanitize input to prevent SQL injection
-        $email = $this->mysqli->real_escape_string($_POST['email']);
-        $password = md5($email . $_POST['password']);
+         $email = $this->mysqli->real_escape_string($_POST['email']);
+         $password = md5($email . $_POST['password']);
     
         // Query the database to check for active user with the provided email and password
         $data = $this->mysqli->query("SELECT * FROM users WHERE email = '$email' AND password = '$password' AND status = 'active'");
@@ -331,6 +331,12 @@ class itways extends db{
 		return $token;
 	}
 
+
+
+
+	function getStr($param){
+		return isset($_GET[$param]) ? $this->sanitize($_GET[$param]) : null;
+	}
 
 
 

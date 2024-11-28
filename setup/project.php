@@ -41,7 +41,7 @@
                                 <p class="text-muted text-uppercase fs-12 fw-medium mb-2">Project</p>
                                 <ul class="list-unstyled mb-0 filter-list">
                                     <li>
-                                        <a href="<?= $itways->uri(); ?>?category" class="d-flex py-1 align-items-center">
+                                        <a href="<?= $itways->uri(); ?>?page=category" class="d-flex py-1 align-items-center">
                                             <div class="flex-grow-1">
                                                 <h5 class="fs-13 mb-0 listname">Category</h5>
                                             </div>
@@ -105,11 +105,11 @@
 
                        
                         <!-- end card header -->
-                       <?php 
-                       print_r($_GET);
-                       ?>
-                         <?php if($_GET['category']){  ?>
-                            dasdsa
+                       
+                         <?php 
+                         $page = $itways->getStr('page');
+                         if($page=='category'){  ?>
+                            
                         <div class="card-body">
                             
 Category

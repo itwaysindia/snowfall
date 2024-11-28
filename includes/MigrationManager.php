@@ -36,9 +36,10 @@ class MigrationManager
 
                 // Mark as applied
                 $this->markMigrationAsApplied($file);
-                echo "Applied migration: $file\n";
+                echo "Applied migration: $file\n <br />";
             }
         }
+        echo '<br /><a href="../auth/">Login</a>';
     }
 
     private function getAppliedMigrations()
