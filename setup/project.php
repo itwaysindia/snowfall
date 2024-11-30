@@ -111,8 +111,28 @@
                          if($page=='category'){  ?>
                             
                         <div class="card-body">
-                            
-Category
+                        <div class="table-responsive-sm">
+
+                                       
+                                    
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0 flex-grow-1">Base Example</h4>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <div id="table-gridjs"></div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+
+
+                         </div>
                         </div>
                         <?php } ?>
                         <!-- end card body -->
@@ -134,3 +154,33 @@ Category
 
 
 <?php include("../layout/footer.php"); ?>
+    <!-- gridjs js -->
+    <script src="assets/libs/gridjs/gridjs.umd.js"></script>
+    <!-- gridjs init -->
+    <!-- <script src="assets/js/pages/gridjs.init.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gridjs"></script>
+<script>
+    // Initialize Grid.js
+    new gridjs.Grid({
+    columns: ['ID', 'Name', 'Email'], // Add your table columns here
+    server: {
+        url: 'setup/ajax/ajax-project.php',
+        then: data => 
+            data.data.map(item => [item.id, item.name, item.email]), // Map each row of data
+        params: {
+            limit: 10, // Items per page (can be dynamic)
+            page: 1, // Initial page
+            sort: 'id', // Sorting field (can be dynamic)
+            order: 'asc', // Sort order (asc/desc)
+        }
+    },
+    pagination: {
+        limit: 10, // Items per page
+        next: true, // Show next page button
+        previous: true, // Show previous page button
+    },
+    sort: true, // Enable sorting
+}).render(document.getElementById("table-gridjs"));
+
+</script>

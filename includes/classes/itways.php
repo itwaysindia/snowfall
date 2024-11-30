@@ -147,6 +147,21 @@ class itways extends db{
 		}
 		return @$row;
 	}
+
+	function count($sql)
+	{
+		$data = $this->mysqli->query($sql);
+		$row_count =   $data->num_rows;
+		return $row_count;
+	}
+	function countTable($table)
+	{
+		$data = $this->mysqli->query("SELECT * FROM $table");
+		$row_count =   $data->num_rows;
+		return $row_count;
+	}
+
+
 	function getid($table, $id)
 	{
 

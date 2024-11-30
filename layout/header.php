@@ -20,6 +20,7 @@ $itways->check_session();
 
         <!-- gridjs css -->
         <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
 
         <!-- Layout config Js -->
         <script src="assets/js/layout.js"></script>
